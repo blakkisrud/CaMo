@@ -4,6 +4,11 @@
 import pandas as pd
 import numpy as np
 import pickle as pc
+import time
+
+""""
+Minimal script to store logs
+"""
 
 def add_data_entry_to_pandas(data_entry, panda_frame):
     
@@ -117,6 +122,7 @@ path_to_dta_file = "cows.dta"
 path_to_current_parsed_log = "current_log.p"
 path_to_core_log = "core.p"
 is_run_zero = False
+time_res_in_min = 5
 
 # Things to do before activity
 
@@ -138,12 +144,10 @@ else:
     
     master_data_set = pc.load(open(path_to_core_log, "rb"))
 
-cow_id = "1730"
 
-single_cow = master_data_set.loc[master_data_set["Ku-nummer"] == cow_id]
-print single_cow["Idag-1"]
+while True:
+    
+    check_for_new(master_data_set)
+    time.sleep(60*time_res_in_min)
 
-# At this point become "active"
-
-check_for_new(master_data_set)
 
