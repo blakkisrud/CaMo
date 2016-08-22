@@ -119,6 +119,12 @@ def check_for_new(master_data):
         print "entries"
 
 path_to_dta_file = "cows.dta"
+
+if path_to_dta_file == "cows.dta":
+
+    print "Warning, using dummy file"
+
+
 path_to_current_parsed_log = "current_log.p"
 path_to_core_log = "core.p"
 is_run_zero = False
